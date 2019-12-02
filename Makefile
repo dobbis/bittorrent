@@ -9,5 +9,9 @@ Main.class:
 	mkdir -p bin/client_file
 	$(JCC) $(JFLAGS) bittorrent/Main.java
 
+run:
+	cd bin/
+	java bittorrent/Main
+
 clean:
 	rm  bin/bittorrent/Main.class bin/bittorrent/client/*.class bin/bittorrent/server/*.class bin/bittorrent/util/*.class bin/client_file/* bin/server_file/splits/*
