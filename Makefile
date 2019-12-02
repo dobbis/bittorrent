@@ -14,4 +14,4 @@ run:
 	java bittorrent/Main
 
 clean:
-	rm  bin/bittorrent/Main.class bin/bittorrent/client/*.class bin/bittorrent/server/*.class bin/bittorrent/util/*.class bin/client_file/* bin/server_file/splits/*
+	rm -rf bin/bittorrent/Main.class bin/bittorrent/client/*.class bin/bittorrent/server/*.class bin/bittorrent/util/*.class bin/client_file/* bin/server_file/splits/*
