@@ -31,7 +31,7 @@ public class Server extends Thread{
     static synchronized int getNumChunksSent(){
         return numChunksSent;
     }
-
+    
     public Server(String filepath, int port_num, Peer client1, Peer client2, Peer client3) {
         this.filepath = filepath;
         this.S_PORT = port_num;
