@@ -41,10 +41,11 @@ public class Main{
             e.printStackTrace();
         }
 
-        Server server = new Server(filepath, PORTNUM_server);
         Peer client1 = new Peer(IPaddress_client1, PORTNUM_server, PORTNUM_client1, PORTNUM_client2);
         Peer client2 = new Peer(IPaddress_client2, PORTNUM_server, PORTNUM_client2, PORTNUM_client3);
         Peer client3 = new Peer(IPaddress_client3, PORTNUM_server, PORTNUM_client3, PORTNUM_client1);
+
+        Server server = new Server(filepath, PORTNUM_server, client1, client2, client3);
 
         Thread thread_server = new Thread(server);
 

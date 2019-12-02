@@ -19,6 +19,10 @@ public class Server extends Thread{
     private static int numChunks = -1;
     private static int numChunksSent = 0;
 
+    private static Peer client1;
+    private static Peer client2;
+    private static Peer client3;
+
     static synchronized int incNumChunksSent(){
         return numChunksSent++;
     }
@@ -27,9 +31,12 @@ public class Server extends Thread{
         return numChunksSent;
     }
 
-    public Server(String filepath, int port_num) {
+    public Server(String filepath, int port_num, Peer client1, Peer client2, Peer client3) {
         this.filepath = filepath;
         this.S_PORT = port_num;
+        this.client1 = client1;
+        this.client2 = client2;
+        this.client3 = client3;
     }
     public void run() {
         System.out.println("The FileOwner is running.");
@@ -60,7 +67,7 @@ public class Server extends Thread{
             thread_client1.start();
             thread_client2.start();
             thread_client3.start();
-            
+
             int peerNum = 0;
             try {
                 while (true) {
