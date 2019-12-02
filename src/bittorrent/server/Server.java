@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.ServerSocket;
 
+import bittorrent.Main;
 import bittorrent.util.ChordException;
 import bittorrent.util.Util;
 
@@ -51,6 +52,7 @@ public class Server extends Thread{
 
             ServerSocket listener = new ServerSocket(S_PORT);
             System.out.println("Listening on port: " + S_PORT);
+            Main.server_opened = true;
 
             int peerNum = 0;
             try {

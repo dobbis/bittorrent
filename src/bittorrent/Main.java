@@ -6,7 +6,9 @@ import bittorrent.server.Server;
 import java.io.*;
 
 public class Main{
+    public static boolean server_opened = false;
     public static void main(String[] args) {
+        
         String IPaddress_client1 = null;
         String IPaddress_client2 = null;
         String IPaddress_client3 = null;
@@ -51,6 +53,7 @@ public class Main{
         Thread thread_client3 = new Thread(client3);
 
         thread_server.start();
+        while(!server_opened) {}
         thread_client1.start();
         thread_client2.start();
         thread_client3.start();
