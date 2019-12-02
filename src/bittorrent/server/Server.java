@@ -52,8 +52,15 @@ public class Server extends Thread{
 
             ServerSocket listener = new ServerSocket(S_PORT);
             System.out.println("Listening on port: " + S_PORT);
-            Main.server_opened = true;
 
+            Thread thread_client1 = new Thread(client1);
+            Thread thread_client2 = new Thread(client2);
+            Thread thread_client3 = new Thread(client3);
+    
+            thread_client1.start();
+            thread_client2.start();
+            thread_client3.start();
+            
             int peerNum = 0;
             try {
                 while (true) {
