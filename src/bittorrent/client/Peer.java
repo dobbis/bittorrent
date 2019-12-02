@@ -30,7 +30,7 @@ public class Peer extends Thread{
         this.fileOwnerPort = fileOwnerPort;
         this.uploadPort = listenPort;
         this.downloadPort = neighborPort;
-        chunksIHaveFile = new File(CLIENT_ROOT_DIR + "\\" + uploadPort + "\\" + uploadPort + "clientChunks.txt");
+        chunksIHaveFile = new File(CLIENT_ROOT_DIR + "/" + uploadPort + "/" + uploadPort + "clientChunks.txt");
     }
 
     private void connectToFileOwner() {
@@ -70,7 +70,7 @@ public class Peer extends Thread{
     }
 
     private void createClientDirectory(){
-        File file = new File(CLIENT_ROOT_DIR+"\\"+uploadPort);
+        File file = new File(CLIENT_ROOT_DIR+"/"+uploadPort);
         if (!file.exists()) {
             file.mkdir();
         }
@@ -98,7 +98,7 @@ public class Peer extends Thread{
                 chunksIHave[(int) fc.getNum() - 1] = fc;
             }
 
-            Util.writeFileChunksToFiles(CLIENT_ROOT_DIR + "\\" + uploadPort, chunksIHave);
+            Util.writeFileChunksToFiles(CLIENT_ROOT_DIR + "/" + uploadPort, chunksIHave);
 
             writeChunksIHaveToFile();
 
@@ -233,12 +233,12 @@ public class Peer extends Thread{
                             System.out.println("DOWNLOAD:	Received chunk " + f + " from neighbor");
                             addToChunksIHave(f, (int)f.getNum()-1);
 
-                            Util.writeFileChunksToFiles(CLIENT_ROOT_DIR + "\\" + uploadPort, chunksIHave);
+                            Util.writeFileChunksToFiles(CLIENT_ROOT_DIR + "/" + uploadPort, chunksIHave);
                         }
                         printChunksIHave();
                         writeChunksIHaveToFile();
 
-                        Util.writeFileChunksToFiles(CLIENT_ROOT_DIR+"\\"+uploadPort, chunksIHave);
+                        Util.writeFileChunksToFiles(CLIENT_ROOT_DIR+"/"+uploadPort, chunksIHave);
                     }
 
                     Thread.sleep(1000);
@@ -250,7 +250,7 @@ public class Peer extends Thread{
 
                 sendMessage(new ArrayList<Integer>());
 
-                Util.rebuildFileFromFileChunks(chunksIHave, "Rebuild" + uploadPort + chunksIHave[0].getFileName(), CLIENT_ROOT_DIR+"\\"+uploadPort);
+                Util.rebuildFileFromFileChunks(chunksIHave, "Rebuild" + uploadPort + chunksIHave[0].getFileName(), CLIENT_ROOT_DIR+"/"+uploadPort);
 
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();

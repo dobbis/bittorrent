@@ -11,7 +11,7 @@ public class Server extends Thread{
 
     private static String filepath;
     private static int S_PORT;
-    private static final String ROOT_SPLIT_DIR = "server_file\\splits";
+    private static final String ROOT_SPLIT_DIR = "server_file/splits";
     private static final int CHUNK_SIZE = 10 * 1024;
     private static final int NUM_PEERS = 3;
 

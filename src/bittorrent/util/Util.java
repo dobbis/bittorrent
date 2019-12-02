@@ -49,7 +49,7 @@ public class Util {
             if (chunk == null) {
                 continue;
             }
-            FileOutputStream fos = new FileOutputStream(rootDir + "\\" + chunk.getChunkFilename());
+            FileOutputStream fos = new FileOutputStream(rootDir + "/" + chunk.getChunkFilename());
             BufferedOutputStream bos = new BufferedOutputStream(fos);
             ObjectOutputStream oos = new ObjectOutputStream(bos);
             oos.writeObject(chunk);
@@ -83,7 +83,7 @@ public class Util {
             throw new ChordException("rebuildFileFromChunks: error, complete set of FileChunks not provided");
         }
 
-        File f = (newFileName == null ? new File(rootDir + "\\" + orderedChunks.get(0).getFileName()) : new File(rootDir + "\\" + newFileName));
+        File f = (newFileName == null ? new File(rootDir + "/" + orderedChunks.get(0).getFileName()) : new File(rootDir + "/" + newFileName));
         BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(f));
 
         for (FileChunk chunk : orderedChunks.values()) {
