@@ -7,6 +7,7 @@ import java.net.ServerSocket;
 import bittorrent.Main;
 import bittorrent.util.ChordException;
 import bittorrent.util.Util;
+import bittorrent.client.Peer;
 
 public class Server extends Thread{
 
